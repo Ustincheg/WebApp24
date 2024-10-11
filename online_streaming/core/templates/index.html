@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming Service</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="container">    
+    <div class="main-content">
+      <header>
+        <form id="filter-form" action="{% url 'search' %}" method="get">
+          <input name="q" type="text" placeholder="Search" class="search-bar" value="{{ request.GET.q }}">
+          <script>console.log("Search Query:", "{{ request.GET.q }}");</script>
+        </form>
+        
+      </header>
+
+      <section class="banner">
+        <h1>TV Shows</h1>
+        <p>Watch past seasons of exclusive shows...</p>
+      </section>
+        
+      <section class="filters" >
+        <div class='dropdown' >
+          <div class='select' >
+            <span class='selected'>Жанр</span>
+            <div class='caret'></div>
+          </div>
+          <ul class='menu-genre'>
+            {% for i in genre %}
+            <li >{{i}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class='dropdown' >
+          <div class='select' >
+            <span class='selected'>Страна</span>
+            <div class='caret'></div>
+          </div>
+          <ul class='menu-country'>
+            {% for i in country %}
+            <li >{{i}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <script src="{% static 'js/menu.js' %}"></script>
+        <script src = "{% static 'js/getfilms.js' %}"></script>
+      </section>
+  
+      <section class="shows-list">
+        {% for item in items %}
+        <div class="show-card">
+          <a href="{% url 'film' item.kinopoisk_id %}" class='card-link'></a>  
+          <img src="{{ item.image_url }}" alt="{{ item.title }}">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.years }}</p>
+        </div>
+        {% endfor %}
+      </section>
+      
+    </div>
+  </div>
+</body>
+<footer >
+  Какая-то информация об авторском праве или может информация об авторе статьи?
+</footer>
+</html>

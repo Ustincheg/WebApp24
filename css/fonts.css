@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Rubik One";
+    font-style: normal;
+    font-weight: 400;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("Rubik One"),
+         /* Если не получилось, загрузит woff2 */
+         url("/fonts/RubikOne-Regular.woff") format("woff"),
+         /* Если браузер не поддерживает woff2, загрузит woff */
+         url("/fonts/RubikOne-Regular.ttf") format("ttf");
+        }
+
+  @font-face {
+    font-family: "Circe";
+    font-style: normal;
+    font-weight: 400;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("Circe"),
+         /* Если не получилось, загрузит woff2 */
+         url("/fonts/Circe.woff2") format("woff2"),
+         /* Если браузер не поддерживает woff2, загрузит woff */
+         url("/fonts/Circe.woff") format("woff");
+  }

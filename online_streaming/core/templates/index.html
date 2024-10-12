@@ -16,7 +16,7 @@
           <input name="q" type="text" placeholder="Search" class="search-bar" value="{{ request.GET.q }}">
           <script>console.log("Search Query:", "{{ request.GET.q }}");</script>
         </form>
-        
+        <p>{{request.user}}</p>  
       </header>
 
       <section class="banner">

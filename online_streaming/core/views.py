@@ -23,7 +23,7 @@ class FilmView(ListView):
 
 def film(request, kinopoisk_id):  
     film_item = Films.objects.get(kinopoisk_id=kinopoisk_id)  
-    return render(request, 'film.html', {'item': film_item})
+    return render(request, 'detail_film.html', {'item': film_item})
 
 
 class Search(ListView):

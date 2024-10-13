@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ item.title }}</title>
+  <link rel="stylesheet" href="{% static 'css/styles_detail_film.css' %}">
+</head>
+<body>
+  <div class='container'>
+    <div class="poster">
+      <img src="{{ item.image_url }}" alt="{{ item.title }} poster"> 
+    </div> 
+    <div class="content">
+      <h1>{{ item.title }}</h1>
+      <p>{{ item.short_description }}</p>
+      <div class="info-detail">
+        <h2>О сериале</h2>
+        <table>
+          <tr>
+            <td>Год производства</td>
+            <td>{{ item.years }}</td>
+          </tr>
+          <tr>
+            <td>Страна</td>
+            <td>{% for country in item.country.all %}{{ country.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+          </tr> 
+          <tr>
+            <td>Жанр</td>
+            <td>{% for genre in item.genres.all %}{{ genre.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+          </tr> 
+          <tr>
+            <td>Бюджет фильма</td>
+            <td>{{ item.budget }} $</td>
+          </tr>
+          <tr>
+            <td>Сборы в мире</td>
+            <td>{{ item.fees }} $</td>
+          </tr>
+          <tr>
+            <td>Продолжительность фильма</td>
+            <td>{{ item.duration }} мин</td>
+          </tr>
+        </table>
+      </div>
+      <div class="kinobox_player"></div>
+    </div>
+  </div>
+
+  <script src="https://kinobox.tv/kinobox.min.js"></script>
+  <script>
+    kbox('.kinobox_player', {
+      search: {
+        kinopoisk: "{{ item.kinopoisk_id }}"
+      }
+    });
+  </script>
+</body>
+</html>

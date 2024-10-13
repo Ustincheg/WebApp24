@@ -23,7 +23,10 @@ class FilmView(ListView):
 
 def film(request, kinopoisk_id):  
     film_item = Films.objects.get(kinopoisk_id=kinopoisk_id)  
-    return render(request, 'detail_film.html', {'item': film_item})
+    if film_item.type == 'FIML': 
+        return render(request, 'detail_film.html', {'item': film_item})
+    else:
+        return render(request, 'detail_film.html', {'item': film_item}) # написать htmk под сериалы 
 
 
 class Search(ListView):

@@ -31,12 +31,31 @@
             <td>{% for genre in item.genres.all %}{{ genre.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
           </tr> 
           <tr>
-            <td>Бюджет фильма</td>
-            <td>{{ item.budget|default_if_none:'неизвестно' }} {% if item.budget != None %} $ {% endif %} </td>
+            <td >Бюджет фильма</td>
+            <td class = 'number_money'>{{ item.budget|default_if_none:'неизвестно' }}  </td>
           </tr>
           <tr>
             <td>Сборы в мире</td>
-            <td>{{ item.fees|default_if_none:'неизвестно' }} {% if item.budget != None %} $ {% endif %} </td>
+            <td class = 'number_money'>{{ item.fees|default_if_none:'неизвестно' }}</td>
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                let moneyElements = document.querySelectorAll('.number_money');
+      
+                moneyElements.forEach(function (element) {
+                  let valueText = element.textContent.trim();
+                  let value = parseInt(valueText);
+            
+                  if (!isNaN(value)) {
+                    let formatted = value.toLocaleString("en-US", {
+                      style: 'currency', currency: "USD", minimumFractionDigits: 0
+                    });
+                    element.textContent = formatted;
+                  } else {
+                    console.log("Value is not a number:", valueText);
+                  }
+                });
+              });
+            </script>
           </tr>
           <tr>
             <td>Продолжительность фильма</td>

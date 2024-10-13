@@ -5,9 +5,10 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'online_streaming.settings')
 django.setup()
 from core.models import Genre, Country, Films
-with open('final__1.json', 'r', encoding='utf-8') as file:
+with open('final_serail.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 for item in data['items']:
+    print(item)
     genres = []
     for genre_data in item['genres']:   
         genre_name = genre_data['genre']
@@ -19,16 +20,17 @@ for item in data['items']:
         country, created = Country.objects.get_or_create(name=country_name)
         countries.append(country)
     film, created = Films.objects.update_or_create(
-        kinopoisk_id=item['kinopoisk_id'],
+        kinopoisk_id=item['kinopoiskId'],
         defaults={
-            'title': item['name'],
-            'short_description':item['shortDescription'],
-            'image_url': item['url_post'],
+            'title': item['nameRu'],
+            'short_description': None,   
+            'image_url': item['posterUrl'],
             'years': item['year'],
-            'duration': item['filmLength'],
+            'duration': None,
             'budget':item['budget'] if 'budget' in item else None,
             'fees':item['fees'] if 'fees' in item else None,
-            'description': item['description'],
+            'description':item['description'],
+            'type': item['type']
         }
     )
     film.genres.set(genres)

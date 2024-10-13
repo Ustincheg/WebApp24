@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Получаем все элементы списка жанров и стран
+    
     const genreItems = document.querySelectorAll('.menu-genre li');
     const countryItems = document.querySelectorAll('.menu-country li');
-    const searchInput = document.querySelector('.search-bar');  // Поле для поиска по названию
+    const searchInput = document.querySelector('.search-bar'); 
+    const typeItems = document.querySelectorAll('.menu-type li')
 
-    // Функция для выполнения AJAX-запроса
-    function fetchFilms(selectedGenre, selectedCountry, searchQuery) {
-        const url = '/filter/';  // Указываем правильный URL для фильтрации
+    function fetchFilms(selectedGenre, selectedCountry, searchQuery, selectedType) {
+        const url = '/filter/';  
 
-        // Формируем URL с параметрами поиска, жанра и страны
+    
         const params = new URLSearchParams();
         if (selectedGenre) {
             params.append('genre', selectedGenre);
@@ -19,21 +19,22 @@ document.addEventListener('DOMContentLoaded', function () {
         if (searchQuery) {
             params.append('q', searchQuery);
         }
+        if (typeItems) {
+            params.append('type', selectedType)
+        }
 
-        // Выполняем AJAX-запрос с параметрами
         fetch(`${url}?${params.toString()}`, {
             method: 'GET',
             headers: {
-                'X-Requested-With': 'XMLHttpRequest'  // Проверяем, что запрос AJAX
+                'X-Requested-With': 'XMLHttpRequest' 
             }
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data.context);  // Выводим данные фильмов в консоль для проверки
-
-            // Обновляем список фильмов в секции "shows-list"
+            console.log(data.context);  
+            
             const showsList = document.querySelector('.shows-list');
-            showsList.innerHTML = '';  // Очищаем предыдущие фильмы
+            showsList.innerHTML = '';  
 
             if (data.context.length > 0) {
                 data.context.forEach(film => {
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     showsList.insertAdjacentHTML('beforeend', filmCard);  // Добавляем новые фильмы в секцию
                 });
             } else {
-                // Если фильмов нет, выводим сообщение
+                // 
                 showsList.innerHTML = '<p>Фильмы не найдены для выбранных параметров.</p>';
             }
         })
@@ -56,28 +57,31 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    let selectedGenre = '';  // Для хранения выбранного жанра
-    let selectedCountry = '';  // Для хранения выбранной страны
-
-    // Обрабатываем клик по каждому элементу списка жанров
+    let selectedGenre = '';
+    let selectedCountry = ''; 
+    let selectedType = ''; 
+    
     genreItems.forEach(item => {
         item.addEventListener('click', function () {
-            selectedGenre = this.textContent.trim();  // Получаем название жанра и убираем пробелы
-            const searchQuery = searchInput.value.trim();    // Получаем текущий поисковый запрос
-
-            // Выполняем запрос с текущими параметрами
-            fetchFilms(selectedGenre, selectedCountry, searchQuery);
+            selectedGenre = this.textContent.trim(); 
+            const searchQuery = searchInput.value.trim();
+            fetchFilms(selectedGenre, selectedCountry, searchQuery, selectedType);
         });
     });
 
-    // Обрабатываем клик по каждому элементу списка стран
+    typeItems.forEach(item => {
+        item.addEventListener('click', function(){
+            selectedType = this.textContent.trim();
+            const searchQuery = searchInput.value.trim();
+            fetchFilms(selectedGenre, selectedCountry, searchQuery, selectedType)
+        })
+    })
     countryItems.forEach(item => {
         item.addEventListener('click', function () {
-            selectedCountry = this.textContent.trim();  // Получаем название страны и убираем пробелы
-            const searchQuery = searchInput.value.trim();    // Получаем текущий поисковый запрос
+            selectedCountry = this.textContent.trim();
+            const searchQuery = searchInput.value.trim();    
 
-            // Выполняем запрос с текущими параметрами
-            fetchFilms(selectedGenre, selectedCountry, searchQuery);
+            fetchFilms(selectedGenre, selectedCountry, searchQuery, selectedType);
         });
     });
 

@@ -228,6 +228,42 @@
 .menu-country li:hover {
   background-color: #23242a;
 }
+
+.menu-type {
+  list-style: none;
+  padding: 0.5em 0.5em;
+  background: #333;  
+  color: white;
+  position: absolute;
+  top: 3em;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  z-index: 2;
+  border-radius: 15px;
+  scrollbar-width: none;
+  overflow-y: auto;
+  max-height: 200px;
+  visibility: hidden;
+  pointer-events: none
+}
+
+.menu-type-open {
+  opacity: 1;
+  visibility: visible; 
+  pointer-events: auto;
+ }
+.menu-type li {
+  padding: 0.7em 0.5em;
+  cursor: pointer;
+  margin: 2% 0; 
+  border-radius: 15px;
+}
+
+.menu-type li:hover {
+  background-color: #23242a;
+}
 footer {
   display: flex ;
   background: #181818 ;

@@ -33,7 +33,7 @@ class Search(ListView):
     context_object_name = 'items'
 
     def get_context_data(self, **kwargs):
-        context =  super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['genre'] = Genre.objects.all()
         context['country'] = Country.objects.all()
         return context
@@ -46,7 +46,10 @@ def filter_films(request, query):
      if request.method == 'GET':
             url_parameter = request.GET.get('q')
             genre = request.GET.get('genre')
-            country = request.GET.get('country')        
+            country = request.GET.get('country')    
+            type = Films.get_type(request.GET.get('type'))
+            if type:
+                query = query.filter(type = type)  
             if url_parameter:
                 query = query.filter(title__istartswith = url_parameter)
             if genre:

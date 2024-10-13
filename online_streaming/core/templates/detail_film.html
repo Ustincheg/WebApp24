@@ -16,7 +16,7 @@
       <h1>{{ item.title }}</h1>
       <p>{{ item.short_description }}</p>
       <div class="info-detail">
-        <h2>О сериале</h2>
+        <h2>О фильме</h2>
         <table>
           <tr>
             <td>Год производства</td>
@@ -32,11 +32,11 @@
           </tr> 
           <tr>
             <td>Бюджет фильма</td>
-            <td>{{ item.budget }} $</td>
+            <td>{{ item.budget|default_if_none:'неизвестно' }} {% if item.budget != None %} $ {% endif %} </td>
           </tr>
           <tr>
             <td>Сборы в мире</td>
-            <td>{{ item.fees }} $</td>
+            <td>{{ item.fees|default_if_none:'неизвестно' }} {% if item.budget != None %} $ {% endif %} </td>
           </tr>
           <tr>
             <td>Продолжительность фильма</td>

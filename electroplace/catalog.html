@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Электроплейс</title>
+</head>
+
+<body class="body">
+  <header class="header">
+    <ul class="header__link-list link-list">
+      <li class="link-list__item">
+        <a href="#" class="link-list__link">
+          Магазины
+        </a>
+      </li>
+      <li class="link-list__item">
+        <a href="#" class="link-list__link">
+          Доставка и оплата
+        </a>
+      </li>
+      <li class="link-list__item">
+        <a href="#" class="link-list__link">
+          Кредиты и рассрочка
+        </a>
+      </li>
+    </ul>
+    <a href="tel:+7 (495) 444-888-5" class="header__phone-link">8 (495) 444-888-5</a>
+    <a class="header__logo">
+      <img src="#" alt="логотип">
+    </a>
+    <form action="get" class="header__form">
+      <input type="text" placeholder="Поиск..." class="header__form-input">
+    </form>
+    <a href="#" class="header__link">Избранное</a>
+    <a href="#" class="header__link">Корзина</a>
+    <button class="header__nav-button">Каталог</button>
+    <nav class="header__nav nav">
+      <ul class="nav__list">
+        <li class="nav__list-item">
+          <a href="#" class="nav__item-link">Скидки</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__item-link">СМАРТФОНЫ</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__item-link">ТЕЛЕВИЗОРЫ</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__item-link">НОУТБУКИ</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__item-link">СТИРАЛЬНЫЕ МАШИНЫ</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__item-link">ХОЛОДИЛЬНИКИ</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__item-link">ПЫЛЕСОСЫ</a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="nav__item-link">МИКРОВОЛНОВКИ</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+    <h1 class="title">Каталог Смартфонов.</h1>
+
+    <section class="catalog">
+      <ul class="catalog__breadcrumbs breadcrumbs-list">
+        <li class="breadcrumbs-list__item">
+          <a href="/index.html" class="breadcrumbs-list__item-link">Главная</a>
+        </li>
+        <li class="breadcrumbs-list__item">
+          <a href="/index.html" class="breadcrumbs-list__item-link">Каталог</a>
+        </li>
+        <li class="breadcrumbs-list__item">
+          <a href="/index.html" class="breadcrumbs-list__item-link">Смартфоны</a>
+        </li>
+      </ul>
+      <h2>Смартфоны</h2>
+      <p class="catalog__result-txt">
+        <span class="catalog__result-txt-accent">
+          656
+        </span>
+        товаров
+      </p>
+      <p class="catalog__order-txt">
+        Сортировать:
+        <button class="catalog__order-txt-btn">По цене</button>
+        <button class="catalog__order-txt-btn">По популярности</button>
+        <button class="catalog__order-txt-btn">По новизне</button>
+      </p>
+      <aside class="filters">
+        <form action="#" method="get" class="filters-form form">
+          <fieldset>
+            <legend>Цена, Р</legend>
+            <input type="text">
+            <input type="text">
+            <input type="range" name="range" id="">
+          </fieldset>
+
+          <fieldset>
+            <legend>Диагональ экрана</legend>
+            <select name="screen-size" id="">
+              <option value="15">15 дюймов</option>
+              <option value="18">18 дюймов</option>
+              <option value="19">19 дюймов</option>
+              <option value="20">20 дюймов</option>
+              <option value="21">21 дюймов</option>
+            </select>
+          </fieldset>
+
+          <fieldset>
+            <legend>Бренд</legend>
+              <label>
+                <input type="checkbox" name="APPLE" id=""> APPLE
+              </label>
+              <label>
+                <input type="checkbox" name="BLACKVIEW" id=""> BLACKVIEW
+              </label>
+              <label>
+                <input type="checkbox" name="CLEVERCEL" id=""> CLEVERCEL
+              </label>
+              <label>
+                <input type="checkbox" name="NOKIA" id=""> NOKIA
+              </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Количество SIM-карт</legend>
+              <label>
+                <input type="radio" name="SIM" value="1" id="">
+                1 SIM
+              </label>
+              <label>
+                <input type="radio" name="SIM" value="2" id="">
+                2 SIM
+              </label>
+              <label>
+                <input type="radio" name="SIM" value="3" id="">
+                3 SIM
+              </label>
+          </fieldset>
+          <button type="submit">отправить</button>
+        </form>
+      </aside>
+      <ul>
+        <li>
+          <a href="#">
+            <h3>карточка товара</h3>
+            <figure>
+              <img src="#" alt="Фото товара">
+              <figcaption>
+                <p>
+                  Мультиварка Redmond
+                </p>
+              </figcaption>
+            </figure>
+            <p>6 990 ₽</p>
+            <p>5 533 ₽</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h3>карточка товара</h3>
+            <figure>
+              <img src="#" alt="Фото товара">
+              <figcaption>
+                <p>
+                  Мультиварка Redmond
+                </p>
+              </figcaption>
+            </figure>
+            <p>6 990 ₽</p>
+            <p>5 533 ₽</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h3>карточка товара</h3>
+            <figure>
+              <img src="#" alt="Фото товара">
+              <figcaption>
+                <p>
+                  Мультиварка Redmond
+                </p>
+              </figcaption>
+            </figure>
+            <p>6 990 ₽</p>
+            <p>5 533 ₽</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h3>карточка товара</h3>
+            <figure>
+              <img src="#" alt="Фото товара">
+              <figcaption>
+                <p>
+                  Мультиварка Redmond
+                </p>
+              </figcaption>
+            </figure>
+            <p>6 990 ₽</p>
+            <p>5 533 ₽</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h3>карточка товара</h3>
+            <figure>
+              <img src="#" alt="Фото товара">
+              <figcaption>
+                <p>
+                  Мультиварка Redmond
+                </p>
+              </figcaption>
+            </figure>
+            <p>6 990 ₽</p>
+            <p>5 533 ₽</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h3>карточка товара</h3>
+            <figure>
+              <img src="#" alt="Фото товара">
+              <figcaption>
+                <p>
+                  Мультиварка Redmond
+                </p>
+              </figcaption>
+            </figure>
+            <p>6 990 ₽</p>
+            <p>5 533 ₽</p>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h3>карточка товара</h3>
+            <figure>
+              <img src="#" alt="Фото товара">
+              <figcaption>
+                <p>
+                  Мультиварка Redmond
+                </p>
+              </figcaption>
+            </figure>
+            <p>6 990 ₽</p>
+            <p>5 533 ₽</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <section class="footer__subscribe subscribe">
+      <h2 class="subscribe__title">Оформление подписки</h2>
+      <p class="subscribe__txt">Получайте самые интересные предложения первыми</p>
+      <form action="#" class="subscribe__form">
+        <input type="text" name="subscribe" id="" class="subscribe__form-txt">
+        <button type="submit">Подписаться</button>
+      </form>
+    </section>
+    <section class="footer-bottom">
+      <h2 class="footer-bottom__title">Информация и навигация в футере</h2>
+      <a href="#" class="footer-bottom__logo"><img src="#" alt="Logo"></a>
+      <ul class="footer-bottom__link-list">
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Скидки</a>
+        </li>
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Акции</a>
+        </li>
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Покупатели</a>
+        </li>
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Информация</a>
+        </li>
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Доставка</a>
+        </li>
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Гарантия</a>
+        </li>
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Кредит и рассрочка</a>
+        </li>
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Новости</a>
+        </li>
+        <li class="footer-bottom__link-list-item">
+          <a href="#" class="footer-bottom__link-list-item-link">Вакансии</a>
+        </li>
+      </ul>
+      <ul class="foo"></ul>
+      <p class="footer-bottom__txt">Electro place</p>
+      <a href="#" class="footer-bottom__privacy-link">Политика обработки персональных данных</a>
+      <p class="footer-bottom__txt">
+        Разработка сайта:
+        <a href="#" class="footer-bottom__txt-link">
+          <img src="#" alt="logo GARPIX">
+      </p>
+      </a>
+    </section>
+  </footer>
+</body>
+
+</html>

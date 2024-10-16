@@ -11,5 +11,7 @@ urlpatterns = [
     path('login', Users.views.user_login, name = 'login'),
     path('logout', Users.views.user_logout, name = 'logout'),
     path('register', Users.views.user_register, name = 'register'), 
+    path('confirm-email/<uuid:token>', Users.views.confirm_email, name='confirm-email'),
+
     
 ]

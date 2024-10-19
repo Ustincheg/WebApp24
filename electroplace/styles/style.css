@@ -1,7 +1,27 @@
+body {
+    font-family: "Open Sans", "Arial", sans-serif;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+}
+
 .banner__title {
     font-family: "Roboto", sans-serif;
-    font-weight: 700;
     font-style: normal;
     font-size: 32px;
-    color: red;
+    color: green;
+
+}
+
+.text-open-sans-s16-w400 {
+    font-family: "Open Sans", "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.link-list__link {
+    color:#FFFFFF;
+    font-weight: 700;
 }

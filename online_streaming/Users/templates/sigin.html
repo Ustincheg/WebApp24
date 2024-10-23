@@ -1,16 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streaming Service</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="POST">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit" >ВХОД</button>
+
+    <form class="login-form" method="POST">
+    {% csrf_token %}
+      <h1>Вход</h1>
+      <div class="form-input">
+        <input type="text" id="username" name="username" class="form-control" required placeholder=" " autocomplete="off" />
+        <label for="username">Логин</label>
+      </div>
+      <div class="form-input">
+        <input type="password" id="password" name="password" class="form-control" required placeholder=" " autocomplete="off"  />
+        <label for="password">Пароль</label>
+      </div>
+      <button type="submit">Войти</button>
     </form>
-</body>
+  </body>
 </html>

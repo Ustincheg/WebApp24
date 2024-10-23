@@ -4,6 +4,7 @@ from django.urls import reverse
 from .forms import LoginUser, RegisterUser
 from .models import Users, EmailToken
 from .tasks_celery import sending_email
+from django.contrib import messages
 
 def user_login(request):
     if request.method == 'POST':
@@ -42,10 +43,10 @@ def user_register(request):
                 user.save()
                 
                 token = EmailToken.objects.create(user=user)
-                link_activate = request.build_absolute_uri(reverse('confirm_email', args=[str(token.token)]))
+                link_activate = request.build_absolute_uri(reverse('confirm-email', args=[str(token.token)]))
                 sending_email.delay(link=link_activate, email_user=user.email)
-                
-                return redirect('home')
+                messages.success(request, f"Письмо успешно отправлено на почту {user.email}!")
+                return redirect('register')
             except Exception as e:
                 form.add_error(None, f'Error during registration: {str(e)}') 
     else:

@@ -3,32 +3,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Streaming Service</title>
-  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Service</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-
-    <form class="login-form" method="POST">
-    {% csrf_token %}
-      <h1>Регистрация</h1>
-      <div class="form-input">
-        <input type="text" id="email" name="email" class="form-control" required placeholder=" " autocomplete="off" />
-        <label for="email">Почта</label>
-      </div>
-      <div class="form-input">
-        <input type="text" id="username" name="username" class="form-control" required placeholder=" " autocomplete="off" />
-        <label for="username">Логин</label>
-      </div>
-      <div class="form-input">
-        <input type="password" id="password1" name="password1" class="form-control" required placeholder=" " autocomplete="off" />
-        <label for="password1">Пароль</label>
-      </div>
-      <div class="form-input">
-        <input type="password" id="password2" name="password2" class="form-control" required placeholder=" " autocomplete="off"  />
-        <label for="password2">Повторно пароль</label>
-      </div>
-      <button type="submit">Зарегистрироваться</button>
-    </form>
-  </body>
+    <div class="container">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form class="login-form" method="POST">
+        {% csrf_token %}
+            <h1>Регистрация</h1>
+            <div class="form-input">
+                <input type="text" id="email" name="email" class="form-control" required placeholder=" " autocomplete="off" />
+                <label for="email">Почта</label>
+            </div>
+            <div class="form-input">
+                <input type="text" id="username" name="username" class="form-control" required placeholder=" " autocomplete="off" />
+                <label for="username">Логин</label>
+            </div>
+            <div class="form-input">
+                <input type="password" id="password1" name="password1" class="form-control" required placeholder=" " autocomplete="off" />
+                <label for="password1">Пароль</label>
+            </div>
+            <div class="form-input">
+                <input type="password" id="password2" name="password2" class="form-control" required placeholder=" " autocomplete="off" />
+                <label for="password2">Повторно пароль</label>
+            </div>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+</body>
 </html>

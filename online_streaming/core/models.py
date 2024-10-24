@@ -33,7 +33,7 @@ class Films(models.Model):
     short_description = models.CharField(max_length=255, verbose_name='Короткое описание', blank=True, null=True)
     description = models.TextField(verbose_name='Описание фильма', blank=True, null=True)
     kinopoisk_id = models.PositiveIntegerField(verbose_name='ID в кинопоиске')
-    image_url = models.URLField(verbose_name='Url на обложку')
+    image_url = models.ImageField(upload_to="images", verbose_name="Обложка")
     years = models.PositiveIntegerField(verbose_name='Год выпуска')
     fees = models.PositiveBigIntegerField(verbose_name='Сборы', blank=True, null=True)
     budget = models.PositiveBigIntegerField(verbose_name='Бюджет фильма', blank=True, null=True)
@@ -43,6 +43,7 @@ class Films(models.Model):
     genres = models.ManyToManyField(Genre, verbose_name='Жанры')
     type = models.CharField(max_length=255, verbose_name='Тип фильма', choices=TYPE_CHOOSE)
 
+    
 
     @classmethod 
     def get_type(cls, type):

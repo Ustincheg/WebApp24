@@ -64,7 +64,7 @@
         {% for item in items %}
         <div class="show-card">
           <a href="{% url 'film' item.kinopoisk_id %}" class='card-link'></a>  
-          <img src="{{ item.image_url }}" alt="{{ item.title }}">
+          <img src="{{ item.image_url.url }}" alt="{{ item.title }}">
           <h3>{{ item.title }}</h3>
           <p>{{ item.years }}</p>
         </div>

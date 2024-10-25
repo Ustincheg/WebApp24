@@ -38,10 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (data.context.length > 0) {
                 data.context.forEach(film => {
+                    console.log(film.get_image_url);
                     const filmCard = `
                         <div class="show-card">
                             <a href="/${film.kinopoisk_id}/" class="card-link"></a>  
-                            <img src="${film.image_url}" alt="${film.title}">
+                            <img src= ${film.get_image_url} >
                             <h3>${film.title}</h3>
                             <p>${film.years}</p>
                         </div>`;

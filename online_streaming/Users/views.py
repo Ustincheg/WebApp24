@@ -44,7 +44,7 @@ def user_register(request):
                 
                 token = EmailToken.objects.create(user=user)
                 link_activate = request.build_absolute_uri(reverse('confirm-email', args=[str(token.token)]))
-                sending_email(link=link_activate, email_user=user.email)
+                sending_email.delay(link=link_activate, email_user=user.email)
                 messages.success(request, f"Письмо успешно отправлено на почту {user.email}!")
                 return redirect('register')
             except Exception as e:

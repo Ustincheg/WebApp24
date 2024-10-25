@@ -43,6 +43,9 @@ class Films(models.Model):
     genres = models.ManyToManyField(Genre, verbose_name='Жанры')
     type = models.CharField(max_length=255, verbose_name='Тип фильма', choices=TYPE_CHOOSE)
 
+    @property
+    def get_image_url(self):
+        return self.image_url.url
     
 
     @classmethod 

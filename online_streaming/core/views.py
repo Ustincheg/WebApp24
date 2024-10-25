@@ -16,7 +16,6 @@ class FilmView(ListView):
         context['country'] = Country.objects.all()
         return context
     
-    
     def get_queryset(self) :
         return super().get_queryset()
 
@@ -67,5 +66,13 @@ def Filtr(request):
         if request.method == 'GET':
             query = Films.objects.all()
             query = filter_films(request, query)
-            data = list(query.values())
+            data = []
+            for film in query:
+                data.append({
+                    'kinopoisk_id': film.kinopoisk_id,
+                    'title': film.title,
+                    'years': film.years,
+                    'get_image_url': film.get_image_url 
+                })
+
             return JsonResponse({'context': data}, status=200)

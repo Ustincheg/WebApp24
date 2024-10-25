@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forum</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body class="body">
     <header clas="header">
-        <img src="#" alt="Логотип Мир без границ" class="header__img">      
+        <img src="#" alt="Логотип Мир без границ" class="header__img">
         <a href="#" class="header__link-subscribe">Подписка</a>
         <a href="#" class="header__link-sign-in">Войти</a>
         <ul class="header__link-list">
@@ -43,6 +43,7 @@
                     <p class="slider__list-item-caption">Мачу Пикчу и горы рядом создают сакральную энергетику, сильнейшую по мощности. Не зря мистики называют их местом силы. Уайна-Пикчу — горный хребет в Перу, вокруг которого река...</p>
                     <button class="button-like">Лайк</button>
                     <button class="button-comm">Комментарий</button>
+                    <a href="#" class="slider__list-item-read">Читать</a>
                 </li>
             </ul>
         </section>
@@ -103,6 +104,13 @@
             <ul class="podcasts__list">
                 <li class="podcasts__list-item">
                     <img src="#" alt="Превью" class="podcasts__list-item-img">
+                    <p class="podcasts__list-item-title">TravelVlog: Удаленная работа в путешествии мечты</p>
+                    <button class="button-like">Лайк</button>
+                    <button class="button-comm">Комментарий</button>
+                    <a href="#" class="link-headphones">Наушники</a>
+                </li>
+                <li class="podcasts__list-item">
+                    <img src="#" alt="Превью" class="podcasts__list-item-img">
                     <p class="podcasts__list-item-title">История зарождения Голливуда</p>
                     <button class="button-like">Лайк</button>
                     <button class="button-comm">Комментарий</button>
@@ -141,7 +149,7 @@
         <section class="Info">
             <h2 class="Info__title">Информация о ресурсе</h2>
             <p class="Info__caption-title">Читай, смотри и слушай из любой точки мира</p>
-            <p class="Info__caption">Установите приложение “Мир без границ” и узнавайте о невероятных историях, следите за новыми выпусками любимого шоу и прослушивайте интересные подкасты со своего смартофона даже оффлайн! Подключите <a href="#">премиум подписку</a> к вашему аккаунту и получите доступ к неограниченному облаку знаний. </p>
+            <p class="Info__caption">Установите приложение “Мир без границ” и узнавайте о невероятных историях, следите за новыми выпусками любимого шоу и прослушивайте интересные подкасты со своего смартофона даже оффлайн! Подключите <a href="#" class="Info__caption-link">премиум подписку</a> к вашему аккаунту и получите доступ к неограниченному облаку знаний. </p>
             <a href="#" class="Info__download-link-apple">Скачать в Apple Store</a>
             <a href="#" class="Info__download-link-android">Скачать в Google Play</a>
             <img src="#" alt="Логотип" class="Info__img">
@@ -189,7 +197,8 @@
         <p class="footer__subscribe-title">Подписка на рассылку</p>
         <input type="text" class="footer__input" required placeholder="Имя">
         <input type="text" class="footer__input" required placeholder="E-mail">
-        <input type="checkbox" class="footer__check">
+        <input type="checkbox" class="footer__check" name="footer__check">
+        <label for="footer__check" class="footer__check-caption">Я согласен (на) на обработку моих персональных данных</label>
         <button class="footer__button-send">Отправить</button>
         <a href="#" class="footer__go-to-top-button">Кнопка "наверх"</a>
         <ul class="footer__last-list">

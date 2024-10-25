@@ -17,7 +17,7 @@
     /* Браузер сначала попробует найти шрифт локально */
     src: local("Circe"),
          /* Если не получилось, загрузит woff2 */
-         url("/fonts/Circe.woff2") format("woff2"),
+         url('/fonts/Circe-Light.woff') format("woff"),
          /* Если браузер не поддерживает woff2, загрузит woff */
-         url("/fonts/Circe.woff") format("woff");
+         url("/fonts/Circe-Light.woff2") format("woff2");
   }

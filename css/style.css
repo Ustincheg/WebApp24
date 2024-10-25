@@ -1,7 +1,175 @@
-.header{
 
-}
-
-body {
-    font-family: "Rubik One", "Arial", sans-serif;
+header {
+    font-family: "Circe", "Arial", sans-serif;
+    font-size: 18px;
+    line-height: 27px;
   }
+.header__link-item {
+  font-family: "Circe", "Arial", sans-serif;
+  font-weight: 700;
+}
+.main__link{
+  font-family: "Circe", "Arial", sans-serif;
+  color: rgb(11, 151, 42);
+  font-size: 14px;
+  font-weight: 400;
+}
+.banner__title-txt{
+  font-family: "RubikOne", "Arial", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+.banner__txt{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.main__button{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+.main__button-read{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: chartreuse;
+  color: aliceblue; 
+}
+.stories__title-txt{
+  font-family: "RubikOne", "Arial", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+.stories__list-item-link{
+  font-family: "Circe", "Arial", sans-serif;
+  color: rgb(11, 151, 42);
+  font-size: 14px;
+  font-weight: 400;
+}
+.stories__link{
+  font-family: "Circe", "Arial", sans-serif;
+  color: rgb(11, 151, 42);
+  font-size: 14px;
+  font-weight: 400;
+}
+.stories__list-item-txt-txt{
+  font-family: "Circe", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+.stories__button{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: chartreuse; 
+  color: aliceblue; 
+} 
+.stories__list-item-caption{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.stories__list-item-txt{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+.video__link{
+  font-family: "Circe", "Arial", sans-serif;
+  color: rgb(11, 151, 42);
+  font-size: 14px;
+  font-weight: 400;  
+}
+.video__title-txt{
+  font-family: "RubikOne", "Arial", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+.podcasts__title-txt{
+  font-family: "RubikOne", "Arial", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+.podcast__link{
+  font-family: "Circe", "Arial", sans-serif;
+  color: rgb(11, 151, 42);
+  font-size: 14px;
+  font-weight: 400;  
+}
+.podcasts__list-item-link{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+.podcasts__button{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+.podcasts__button-headphones{
+  font-family: "Circe", "Arial", sans-serif;
+  color: rgb(11, 151, 42);
+  font-size: 14px;
+  font-weight: 400;
+}
+.app__title-txt{
+  font-family: "RubikOne", "Arial", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+}
+.app__txt{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+.app__link{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(11, 151, 42);
+}
+.app__button{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background-color: chartreuse; 
+  color: aliceblue; 
+}
+.footer__list-item-link{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.footer__subscribe-title{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+.footer__input{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 13px;
+  font-weight: 400; 
+}
+.footer__agreement{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 400; 
+}
+.footer__last-list-item-link{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 400;  
+}
+.footer__name-site{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 400;  
+}
+.footer__created-by{
+  font-family: "Circe", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 400;   
+}

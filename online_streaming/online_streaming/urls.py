@@ -1,9 +1,11 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from core import views
 from django.conf import settings
 from django.conf.urls.static import static
 import Users.views
+from core.api.views import SubjetListView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.FilmView.as_view(), name = 'home'),
@@ -14,6 +16,7 @@ urlpatterns = [
     path('logout', Users.views.user_logout, name = 'logout'),
     path('register', Users.views.user_register, name = 'register'), 
     path('confirm-email/<uuid:token>', Users.views.confirm_email, name='confirm-email'),
+    path('api/', include('core.api.urls'))
 
     
 ]

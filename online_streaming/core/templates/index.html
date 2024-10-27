@@ -12,13 +12,21 @@
   <div class="container">    
     <div class="main-content">
       <header>
-        <form id="filter-form" action="{% url 'search' %}" method="get">
-          <input name="q" type="text" placeholder="Search" class="search-bar" value="{{ request.GET.q }}">
-          <script>console.log("Search Query:", "{{ request.GET.q }}");</script>
-        </form>
-        <p>{{request.user}}</p>  
-      </header>
-
+        <div class="filter-container">
+            <form id="filter-form" action="{% url 'search' %}" method="get">
+                <input name="q" type="text" placeholder="Search" class="search-bar" value="{{ request.GET.q }}">
+            </form>
+            <div class="header-links">
+                {% if request.user.is_authenticated %}
+                <p>{{request.user}}</p>
+                <a href="{% url 'logout' %}" class="heaeder_logout">Выйти</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="header_login">Войти</a>
+                <a href="{% url 'register' %}" class="header_register">Регистрация</a>
+                {% endif %}
+            </div>
+        </div>
+    </header>
       <section class="banner">
         <h1>TV Shows</h1>
         <p>Watch past seasons of exclusive shows...</p>

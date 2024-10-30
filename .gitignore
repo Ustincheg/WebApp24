@@ -1,3 +1,4 @@
+locals_vars.py
 .env
 venv/
 media/

@@ -13,6 +13,7 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 load_dotenv()
+from . import locals_vars
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,8 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ij*%@xmmsvo==%_ayjg-@z^4t#sq)=vz+a0d#zh9#3x-9isxjp'
-
+SECRET_KEY = locals_vars.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -92,10 +92,10 @@ REST_FRAMEWORK = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'online_streaming', 
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost', 
+        'NAME': locals_vars.PG_NAME, 
+        'USER': locals_vars.PG_USER,
+        'PASSWORD': locals_vars.PG_PASSWORD,
+        'HOST': locals_vars.PG_HOST, 
         'PORT': '5432',
     }
 }
@@ -134,9 +134,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-
+STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/static/'
 MEDIA_URL = '/media/'
+MEDIA_ROOT = '/var/www/media'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

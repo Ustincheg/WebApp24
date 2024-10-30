@@ -1,0 +1,5 @@
+SECRET_KEY = 't45(fwzj7=t0_(l-1m-p)7_bgdv@af7gb$+=3u5@#u806e4#ft'
+PG_NAME = 'deploy-db' 
+PG_USER = 'postgres' 
+PG_PASSWORD = '123' 
+PG_HOST = 'postgresql-db'

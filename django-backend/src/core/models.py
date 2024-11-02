@@ -1,4 +1,6 @@
 from django.db import models
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 class Genre(models.Model):
     name = models.CharField(max_length=255, unique=True, verbose_name= "Жанр")
@@ -43,9 +45,21 @@ class Films(models.Model):
     genres = models.ManyToManyField(Genre, verbose_name='Жанры')
     type = models.CharField(max_length=255, verbose_name='Тип фильма', choices=TYPE_CHOOSE)
 
+    image_thumbnail = ImageSpecField(source='image_url',
+                                     processors=[ResizeToFill(180,270)],
+                                     format='JPEG',
+                                     options={'quality':85},)
+    
+    image_large = ImageSpecField(source='image_url',
+                                     processors=[ResizeToFill(280,420)],
+                                     format='JPEG',
+                                     options={'quality':85},)
+    
+                                     
+
     @property
     def get_image_url(self):
-        return self.image_url.url
+        return self.image_thumbnail.url
     
 
     @classmethod 

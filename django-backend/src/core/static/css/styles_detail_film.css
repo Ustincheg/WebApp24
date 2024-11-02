@@ -53,4 +53,10 @@ body{
     color: #999;
   }
 
+  .kinobox_player {
   
+    min-height: 500px;
+    min-width: 900px;
+    width: 100%;
+    height: auto;
+  }

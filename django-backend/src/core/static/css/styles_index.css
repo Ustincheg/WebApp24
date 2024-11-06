@@ -6,44 +6,109 @@
   font-family: Arial, sans-serif;
 }
 
-
 .container {
   display: flex;
   height: auto;
   width: auto;
-  min-height: 1080px;
+  min-height: calc(100vh - 50px);
 }
 
-
-.sidebar {
-  width: 80px;
-  background-color: #111;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0;
+.navbar{
+  width: 100%;
+  height: 50px;
+  background: rgb(24, 24, 24);
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 
-.sidebar ul {
-  list-style: none;
+.navbar-movie-list{
+  position: relative;
+  display: none;
+  max-width: 600px;
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  right: 22.5px;
+  
 }
 
-.sidebar ul li {
-  margin: 20px 0;
+.navbar-movie-list ul{
+  list-style-type: none;
+  padding: 0;
 }
 
-.sidebar ul li a {
-  color: white;
+.movie-list-link{
   text-decoration: none;
-  font-size: 24px;
 }
 
-.main-content {
+.movie{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
 
-  flex: 1;
+.movie img{
+  width: 50px;
+  height: 70px;
+  margin-right: 15px;
+  border-radius: 4px;
+}
+
+ 
+.movie-info{
+  flex:1;
+}
+
+.movie-info h3{
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.movie-info p{
+  margin: 5px 0;
+  color: #666;
+}
+
+.navbar-container{
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  height: 100%;
+  color:white;
+}
+.navbar-left{
+  width: 50px;
+  height: 100%;
   background-color: #181818;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 75px;
   color: white;
-  padding: 20px;
+}
+
+.navbar-left-img{
+  margin-bottom: 20px;
+  width: 40px;
+  height: 40px;
+}
+
+ 
+.main-content {
+  flex: 1;
+  background-color: #141414;
+  color: white;
+  padding: 15px 30px 15px 30px;
+  margin-left: 50px
 }
 header {
   display: flex;
@@ -106,7 +171,7 @@ form {
   display: flex;
   flex-wrap: wrap;
   margin: 15px 5px 5px 5px;
-  gap: 6px;
+  gap: 25px;
 }
 
 .show-card {

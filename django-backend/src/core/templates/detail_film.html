@@ -8,6 +8,33 @@
   <link rel="stylesheet" href="{% static 'css/styles_detail_film.css' %}">
 </head>
 <body>
+  <div class="navbar">
+    <div class="navbar-container">
+        <form id="filter-form" action="{% url 'search' %}" method="get">
+            <input name="q" type="text" placeholder="Search" class="search-bar" value="{{ request.GET.q }}" autocomplete="off">
+        </form>
+        <div class="header-links">
+            {% if request.user.is_authenticated %}
+                <p>{{ request.user }}</p>
+                <a href="{% url 'logout-main' %}" class="header_logout">Выйти</a> 
+            {% else %}
+                <a href="{% url 'login-main' %}" class="header_login">Войти</a>
+                <a href="{% url 'register' %}" class="header_register">Регистрация</a>
+            {% endif %}
+        </div>
+    </div>
+    <div id="searchResults" class="navbar-movie-list results" style="display: none;">
+        <ul class="movie-list">
+            <li class='movie'><p>Фильмы и сериалы</p></li>
+        </ul>
+    </div>
+</div>
+
+    <div class="navbar-left"> 
+        <a href="{% url 'home' %}"><img src="{% static 'img/home.svg' %}" class="navbar-left-img"></a>
+        <a href = "{% url 'films-watch' %}"><img src="{% static 'img/clock.svg' %}" class="navbar-left-img"></a>
+    </div>
+</div>
   <div class='container'>
     <div class="poster">
       <script> console.log("{{ item.image_url.url }}", "{{item.image_url}}")</script>
@@ -67,6 +94,7 @@
         </table>
       </div>
       <div class="kinobox_player"></div>
+      <a href="{% url 'watch_later' item.kinopoisk_id %}"> Добавить позже</a>
     </div>
   </div>
 

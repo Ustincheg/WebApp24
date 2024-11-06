@@ -1,6 +1,8 @@
 from django.db import models
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+from django.contrib.auth.models import User
+
 
 class Genre(models.Model):
     name = models.CharField(max_length=255, unique=True, verbose_name= "Жанр")
@@ -40,7 +42,7 @@ class Films(models.Model):
     fees = models.PositiveBigIntegerField(verbose_name='Сборы', blank=True, null=True)
     budget = models.PositiveBigIntegerField(verbose_name='Бюджет фильма', blank=True, null=True)
     country = models.ManyToManyField(Country, verbose_name='Страна')
-    grade = models.DecimalField(max_digits=3, decimal_places=1, max_length=10, verbose_name='Оценка фильма', default=0)
+    grade = models.DecimalField(max_digits=3, decimal_places=1, max_length=5, verbose_name='Оценка фильма', default=0)
     duration = models.PositiveIntegerField(verbose_name='Продолжительность фильма', null= True)
     genres = models.ManyToManyField(Genre, verbose_name='Жанры')
     type = models.CharField(max_length=255, verbose_name='Тип фильма', choices=TYPE_CHOOSE)
@@ -54,9 +56,7 @@ class Films(models.Model):
                                      processors=[ResizeToFill(280,420)],
                                      format='JPEG',
                                      options={'quality':85},)
-    
-                                     
-
+                                         
     @property
     def get_image_url(self):
         return self.image_thumbnail.url
@@ -77,3 +77,19 @@ class Films(models.Model):
     class Meta:
         verbose_name = 'Фильм'
         verbose_name_plural = 'Фильмы'
+
+
+class Watch_later(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    film = models.ManyToManyField(Films)
+    add_data = models.DateTimeField(auto_now_add=True)
+
+
+class Comments(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    film = models.ForeignKey(Films, on_delete=models.CASCADE)
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True) 
+    grade = models.PositiveIntegerField()
+    class Meta():
+        ordering = ['created_on']

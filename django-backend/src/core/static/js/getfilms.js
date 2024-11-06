@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
                             <h3>${film.title}</h3>
                             <p>${film.years}</p>
                         </div>`;
-                    showsList.insertAdjacentHTML('beforeend', filmCard);  // Добавляем новые фильмы в секцию
+                    showsList.insertAdjacentHTML('beforeend', filmCard);  
                 });
             } else {
-                // 
+                
                 showsList.innerHTML = '<p>Фильмы не найдены для выбранных параметров.</p>';
             }
         })
@@ -58,6 +58,50 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    function search_navbar(searchQuery) {
+        const url = '/search_navbar/';  
+    
+        const params = new URLSearchParams();
+        if (searchQuery) {
+            params.append('q', searchQuery);
+        }
+
+
+        fetch(`${url}?${params.toString()}`, {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest' 
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.context);  
+
+            const movie_list = document.querySelector('.movie-list');
+            movie_list.innerHTML = '';  
+
+            if (data.context.length > 0) {
+                data.context.forEach(item => {
+                    const filmCard = `
+                
+                        <a href="/${item.kinopoisk_id}/" class='movie-list-link' >   
+                        <li class="movie">
+                            <img src=${item.get_image_url} >
+                            <div class="movie-info">
+                          <h3>${item.title } </h3> 
+                         <p>${item.years}</p>
+                        </div>
+                       </li>
+                       </a>`;
+                    movie_list.insertAdjacentHTML('beforeend', filmCard);  
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка при загрузке фильмов:', error);
+        });
+    }
+    
     let selectedGenre = '';
     let selectedCountry = ''; 
     let selectedType = ''; 
@@ -85,5 +129,30 @@ document.addEventListener('DOMContentLoaded', function () {
             fetchFilms(selectedGenre, selectedCountry, searchQuery, selectedType);
         });
     });
-
+    let timeout;
+     
+    searchInput.addEventListener('input', function () {
+        const searchQuery = this.value.trim();
+        const movie_list = document.querySelector('.navbar-movie-list');
+        if (searchInput) {
+            clearTimeout(timeout)
+            timeout = setTimeout(() => {
+            search_navbar(searchQuery);
+            movie_list.style.display = 'block';
+            }, 200);    
+        }
+        else{
+            movie_list.innerHTML = '';
+            movie_list.style.display = 'none';
+        }
+    });
+    const movie_list = document.querySelector('.navbar-movie-list');
+   
+    document.addEventListener('click', (e) => {
+        const click = e.composedPath().includes(movie_list);
+        if (!click){
+            movie_list.style.display = 'none';
+        }
+    })
+    
 });

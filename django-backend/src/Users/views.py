@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout, models
 from django.urls import reverse
 from .forms import LoginUser, RegisterUser
-from .models import Users, EmailToken
+from .models import Profile, EmailToken
 from .tasks_celery import sending_email
 from django.contrib import messages
 
@@ -61,7 +61,7 @@ def confirm_email(request, token):
     user.is_active = True
     user.save()
 
-    Users.objects.create(user=user)  
+    Profile.objects.create(user=user)  
 
     confirm_token.delete()
     login(request, user)

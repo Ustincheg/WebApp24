@@ -104,7 +104,18 @@
     text-align: left;
 }
 
+
 .unique-link{
+    color: rgb(11, 151, 42);
+    font-family: Circe;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: right;  
+}
+
+.last-stories__read-more{
     color: rgb(11, 151, 42);
     font-family: Circe;
     font-size: 14px;
@@ -312,5 +323,26 @@
     font-weight: 400;
     line-height: 20px;
     letter-spacing: 0px;
+    text-align: left;
+}
+
+.button-like{
+    color: rgb(255, 255, 255);
+    font-family: Circe;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+
+.button-comm{
+    color: rgb(255, 255, 255);
+    font-family: Circe;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0%;
     text-align: left;
 }

@@ -9,7 +9,7 @@
     
 </head>
 <body class="body">
-    <header clas="header">
+    <header class="header">
         <img src="pictures/BigLogo.png" alt="Логотип Мир без границ" class="header__img">
         <a href="#" class="header__link-subscribe">Подписка</a>
         <a href="#" class="header__link-sign-in">Войти</a>
@@ -34,52 +34,60 @@
 
     <main class="main">
         <h1 class="title">Форум</h1>
-        <section class="slider">
-            <ul class="slider__list">
-                <li class="slider__list-item">
-                    <img src="pictures/MachuPikchu.png" alt="Фото" class="slider__list-item-img">
-                    <a href="#" class="slider__list-item-link">Путешествия</a>
-                    <p class="slider__list-item-caption-title">Неизведанные места гор Мачу-Пикчу</p>
-                    <p class="slider__list-item-caption">Мачу Пикчу и горы рядом создают сакральную энергетику, сильнейшую по мощности. Не зря мистики называют их местом силы. Уайна-Пикчу — горный хребет в Перу, вокруг которого река...</p>
-                    <button class="button-like">Лайк</button>
-                    <button class="button-comm">Комментарий</button>
-                    <a href="#" class="slider__list-item-read">Читать</a>
-                </li>
-            </ul>
-        </section>
-        <section class="last-stories">
-            <h2 class="last-stories__title">Последние истории</h2>
-            <a href="#" class="unique-link">Читать еще</a>
-            <ul class="last-stories__list">
-                <li class="last-stories__list-item">
-                    <img src="pictures/Holi.png" alt="Фото" class="last-stories__list-item-main-img">
-                    <a href="#" class="last-stories__list-item-main-link">Культура</a>
-                    <p class="last-stories__list-item-main-caption-title">Красочный фестиваль Холи в Индии во время пандемии</p>
-                    <a href="#" class="last-stories__list-item-main-link">Священный праздник весны и любви раскрашивает Индию всеми цветами радуги. В марте, когда природа расцвет6ает после зимней спячки, индийцы празднуют...</a>
-                    <button class="last-stories__list-item-main-button">стрелочка</button>
-                </li>
-                <li class="last-stories__list-item">
-                    <img src="pictures/Hamster.png" alt="Фото" class="last-stories__list-item-img">
-                    <a href="#" class="last-stories__list-item-link">Животные</a>
-                    <a href="#" class="last-stories__list-item-caption-title">10 фактов о милых домашних грызунах</a>
-                </li>
-                <li class="last-stories__list-item">
-                    <img src="pictures/GrandCanyon.png" alt="Фото" class="last-stories__list-item-img">
-                    <a href="#" class="last-stories__list-item-link">Путешествия</a>
-                    <a href="#" class="last-stories__list-item-caption-title">Легкое путешествие на Гранд-Каньон за 5 дней</a>
-                </li>
-                <li class="last-stories__list-item">
-                    <img src="pictures/Robot.png" alt="Фото" class="last-stories__list-item-img">
-                    <a href="#" class="last-stories__list-item-link">Наука</a>
-                    <a href="#" class="last-stories__list-item-caption-title">Умный робот для умного дома. Полезный помощник для вас</a>
-                </li>
-                <li class="last-stories__list-item">
-                    <img src="pictures/Turtle.png" alt="Фото" class="last-stories__list-item-img">
-                    <a href="#" class="last-stories__list-item-link">Животные</a>
-                    <a href="#" class="last-stories__list-item-caption-title">Проблемы вымирания пестрых черепах</a>
-                </li>
-            </ul>
-        </section>
+        <div class="container__slider">
+            <section class="slider">
+                <ul class="slider__list">
+                    <li class="slider__list-item">
+                        <img src="pictures/MachuPikchu.png" alt="Фото" class="slider__list-item-img">
+                        <div class="rectangle1"><a href="#" class="slider__list-item-link">Путешествия</a></div>
+                        <p class="slider__list-item-caption-title">Неизведанные места гор Мачу-Пикчу</p>
+                        <div class="vector2"></div>
+                        <p class="slider__list-item-caption">Мачу Пикчу и горы рядом создают сакральную энергетику, сильнейшую по мощности. Не зря мистики называют их местом силы. Уайна-Пикчу — горный хребет в Перу, вокруг которого река...</p>
+                        <p class="button-like">35</p>
+                        <a class="button-like__button"><img src="/pictures/like-button.png" alt="Лайк"></a>
+                        <p class="button-comm">3</p>
+                        <button class="button-comm__button"><img src="/pictures/comm-button.png" alt="Комментарий"></button>
+                        <a href="#" class="slider__list-item-read"><img src="/pictures/read.png" alt="Читать"></a>
+                        <div class="pag"><img src="/pictures/pag.png" alt="Пагинация"></div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="container__last-stories">
+            <section class="last-stories">
+                <h2 class="last-stories__title">Последние истории</h2>
+                <a href="#" class="last-stories__read-more">Читать еще</a>
+                <ul class="last-stories__list">
+                    <li class="last-stories__list-item">
+                        <img src="pictures/Holi.png" alt="Фото" class="last-stories__list-item-main-img">
+                        <a href="#" class="last-stories__list-item-main-link">Культура</a>
+                        <p class="last-stories__list-item-main-caption-title">Красочный фестиваль Холи в Индии во время пандемии</p>
+                        <a href="#" class="last-stories__list-item-main-link">Священный праздник весны и любви раскрашивает Индию всеми цветами радуги. В марте, когда природа расцвет6ает после зимней спячки, индийцы празднуют...</a>
+                        <button class="last-stories__list-item-main-button">стрелочка</button>
+                    </li>
+                    <li class="last-stories__list-item">
+                        <img src="pictures/Hamster.png" alt="Фото" class="last-stories__list-item-img">
+                        <a href="#" class="last-stories__list-item-link">Животные</a>
+                        <a href="#" class="last-stories__list-item-caption-title">10 фактов о милых домашних грызунах</a>
+                    </li>
+                    <li class="last-stories__list-item">
+                        <img src="pictures/GrandCanyon.png" alt="Фото" class="last-stories__list-item-img">
+                        <a href="#" class="last-stories__list-item-link">Путешествия</a>
+                        <a href="#" class="last-stories__list-item-caption-title">Легкое путешествие на Гранд-Каньон за 5 дней</a>
+                    </li>
+                    <li class="last-stories__list-item">
+                        <img src="pictures/Robot.png" alt="Фото" class="last-stories__list-item-img">
+                        <a href="#" class="last-stories__list-item-link">Наука</a>
+                        <a href="#" class="last-stories__list-item-caption-title">Умный робот для умного дома. Полезный помощник для вас</a>
+                    </li>
+                    <li class="last-stories__list-item">
+                        <img src="pictures/Turtle.png" alt="Фото" class="last-stories__list-item-img">
+                        <a href="#" class="last-stories__list-item-link">Животные</a>
+                        <a href="#" class="last-stories__list-item-caption-title">Проблемы вымирания пестрых черепах</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
         <section class="Tv-show">
             <h2 class="Tv-show__title">ТВ шоу</h2>
             <a href="#" class="unique-link">Смотреть еще</a>

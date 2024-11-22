@@ -16,10 +16,10 @@
         <div class="header-links">
             {% if request.user.is_authenticated %}
                 <p>{{ request.user }}</p>
-                <a href="{% url 'logout-main' %}" class="header_logout">Выйти</a> 
+                <a href="{% url 'Users:logout-main' %}" class="header_logout">Выйти</a> 
             {% else %}
-                <a href="{% url 'login-main' %}" class="header_login">Войти</a>
-                <a href="{% url 'register' %}" class="header_register">Регистрация</a>
+                <a href="{% url 'Users:login-main' %}" class="header_login">Войти</a>
+                <a href="{% url 'Users:register' %}" class="header_register">Регистрация</a>
             {% endif %}
         </div>
     </div>
@@ -94,7 +94,33 @@
         </table>
       </div>
       <div class="kinobox_player"></div>
-      <a href="{% url 'watch_later' item.kinopoisk_id %}"> Добавить позже</a>
+      <div><a href="{% url 'watch_later' item.kinopoisk_id %}"> {{watch}}</a>  </div>
+      <div class='container-comments'>
+        <form action='{% url "add_comment" item.kinopoisk_id %}' method='POST', id='rating-form'>
+          {% csrf_token %}
+          <p>Рейтинг:</p>
+          <div class="rating-stars">
+            <input type="radio" id="star5" name="grade" value="5"><label for="star5">&#9733;</label>
+            <input type="radio" id="star4" name="grade" value="4"><label for="star4">&#9733;</label>
+            <input type="radio" id="star3" name="grade" value="3"><label for="star3">&#9733;</label>
+            <input type="radio" id="star2" name="grade" value="2"><label for="star2">&#9733;</label>
+            <input type="radio" id="star1" name="grade" value="1"><label for="star1">&#9733;</label>
+        </div>
+        <br>
+        <p>Комментарий:</p>
+        <textarea id='comment' name='body' rows='4' cols='50'
+                  required placeholder='Напишите свой комментарий' class="comment-text"></textarea>
+        <button type='sumbit'>Отправить</button>
+        </form>
+      </div>
+      <div> 
+        {% for comment in comments %}
+        <p> {{comment.user}} написал:{{comment.body}} , {{comment.grade}}  ЗВЁЗД</p>
+        {% if comment.user == request.user %}
+        <a href="{% url 'remove_comment' item.kinopoisk_id comment.pk %}">Удалить</a>
+    {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 

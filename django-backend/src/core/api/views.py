@@ -6,12 +6,10 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 class SubjetListView(generics.ListAPIView):
     queryset = Films.objects.all()
     serializer_class = SubjectSerializer
-    permission_classes = [IsAuthenticated]
 
 class SubjectDetailView(generics.RetrieveAPIView):
     queryset = Films.objects.all()
     serializer_class = SubjectSerializer_Detail
-    permission_classes = [IsAuthenticated ]
 
 
 class SubjectCreateView(generics.CreateAPIView):

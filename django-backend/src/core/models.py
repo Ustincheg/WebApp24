@@ -1,9 +1,8 @@
 from django.db import models
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
-from django.contrib.auth.models import User
-
-
+from Users.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 class Genre(models.Model):
     name = models.CharField(max_length=255, unique=True, verbose_name= "Жанр")
 
@@ -88,8 +87,8 @@ class Watch_later(models.Model):
 class Comments(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     film = models.ForeignKey(Films, on_delete=models.CASCADE)
-    body = models.TextField()
+    body = models.TextField(max_length=250)
     created_on = models.DateTimeField(auto_now_add=True) 
-    grade = models.PositiveIntegerField()
+    grade = models.PositiveIntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
     class Meta():
         ordering = ['created_on']

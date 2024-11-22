@@ -1,7 +1,6 @@
 from celery import shared_task
 from django.core.mail import send_mail
 from online_streaming.settings import EMAIL_HOST_USER
-@shared_task
 def sending_email(link, email_user):
     send_mail(
         subject='Подтверждение регистрации',

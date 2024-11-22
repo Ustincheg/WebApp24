@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import User
 class LoginUser(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
@@ -21,3 +21,9 @@ class RegisterUser(forms.Form):
         
         else:
             return forms.ValidationError('No good')
+        
+
+class EditUser(forms.Form):
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    

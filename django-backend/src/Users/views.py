@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import authenticate, login, logout, models
+from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
-from .forms import LoginUser, RegisterUser
-from .models import Profile, EmailToken
+from .forms import LoginUser, RegisterUser, EditUser
+from .models import User, EmailToken
 from .tasks_celery import sending_email
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def user_login(request):
     if request.method == 'POST':
@@ -34,17 +35,18 @@ def user_register(request):
         if form.is_valid():
             cd = form.cleaned_data
             try:
-                user = models.User.objects.create_user(
+                user  = User.objects.create_user(
                     username=cd['username'],
                     email=cd['email'],
                     password=cd['password1']
                 )
-                user.is_active = False
+                user.is_active = True
                 user.save()
                 
                 token = EmailToken.objects.create(user=user)
                 link_activate = request.build_absolute_uri(reverse('confirm-email', args=[str(token.token)]))
                 sending_email.delay(link=link_activate, email_user=user.email)
+
                 messages.success(request, f"Письмо успешно отправлено на почту {user.email}!")
                 return redirect('register')
             except Exception as e:
@@ -60,10 +62,29 @@ def confirm_email(request, token):
     user = confirm_token.user
     user.is_active = True
     user.save()
-
-    Profile.objects.create(user=user)  
-
     confirm_token.delete()
     login(request, user)
     
     return redirect('home')
+
+
+@login_required
+def profile(request):
+    user = request.user
+    return render(request, 'profile.html', {"profile":user})
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = EditUser(request.POST)
+        user = request.user
+        if form.is_valid():
+            cd = form.cleaned_data
+            user.first_name = cd['first_name']
+            user.last_name = cd['last_name'] 
+            user.save()
+        return redirect('Users:profile') 
+
+    else: 
+        form = EditUser()
+    return render(request, 'profile_edit.html', {'form':form})

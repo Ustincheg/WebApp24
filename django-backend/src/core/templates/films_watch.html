@@ -17,10 +17,10 @@
         <div class="header-links">
             {% if request.user.is_authenticated %}
                 <p>{{ request.user }}</p>
-                <a href="{% url 'logout-main' %}" class="header_logout">Выйти</a> 
+                <a href="{% url 'Users:logout-main' %}" class="header_logout">Выйти</a> 
             {% else %}
-                <a href="{% url 'login-main' %}" class="header_login">Войти</a>
-                <a href="{% url 'register' %}" class="header_register">Регистрация</a>
+                <a href="{% url 'Users:login-main' %}" class="header_login">Войти</a>
+                <a href="{% url 'Users:register' %}" class="header_register">Регистрация</a>
             {% endif %}
         </div>
     </div>

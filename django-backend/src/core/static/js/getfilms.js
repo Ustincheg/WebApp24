@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 data.context.forEach(item => {
                     const filmCard = `
                 
-                        <a href="/${item.kinopoisk_id}/" class='movie-list-link' >   
+                        <a href="/films/${item.kinopoisk_id}" class='movie-list-link' >   
                         <li class="movie">
                             <img src=${item.get_image_url} >
                             <div class="movie-info">

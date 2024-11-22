@@ -7,7 +7,7 @@ django.setup()
 from core.models import Genre, Country, Films
 from online_streaming import settings
 def load_data():
-    with open('final__1.json', 'r', encoding='utf-8') as file:
+    with open('final_serail.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
     for item in data['items']:
         print(item)
@@ -22,13 +22,13 @@ def load_data():
             country, created = Country.objects.get_or_create(name=country_name)
             countries.append(country)
         film, created = Films.objects.update_or_create(
-            kinopoisk_id=item['kinopoisk_id'],
+            kinopoisk_id=item['kinopoiskId'],
             defaults={
-                'title': item['name'],
-                'short_description': item['shortDescription'],   
+                'title': item['nameRu'],
+                'short_description': None,   
                 'image_url': None,
                 'years': item['year'],
-                'duration': item['filmLength'],
+                'duration': None,
                 'budget':item['budget'] if 'budget' in item else None,
                 'fees':item['fees'] if 'fees' in item else None,
                 'description':item['description'],

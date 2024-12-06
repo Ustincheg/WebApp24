@@ -21,7 +21,9 @@ class FilmView(ListView):
 
     def get_queryset(self):
         return super().get_queryset()
-
+def users_liked_songs(request):
+    favorites = Profile.objects.prefetch_related('liked_sonks').get(user=request.user)
+    return render(request, 'liked_songs.html', {'favorites':favorites})
 
 @login_required
 def Film_watch(request):

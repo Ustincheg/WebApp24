@@ -125,6 +125,16 @@
     text-align: right;
 }
 
+.last-stories__list-item-main-link-1{
+    color: rgb(11, 151, 42);
+    font-family: Circe;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
 .last-stories__list-item-main-link{
     color: rgb(11, 151, 42);
     font-family: Circe;

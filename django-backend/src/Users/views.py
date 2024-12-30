@@ -64,7 +64,7 @@ def confirm_email(request, token):
     user.save()
     confirm_token.delete()
     login(request, user)
-    
+        
     return redirect('home')
 
 
